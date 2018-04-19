@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Jogo da Velha - jQuery</title>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/funcoes.js"></script>
+        <script>
+            $(function(){
+                $('button.click').on('click', function() {  
+                    // Retorna o valor da jogada
+                    let jogada = $('#jogador').text()                  
+                    
+                    // Muda a jogada de acordo com a vez
+                    trocarJogada(jogada)
+                    
+                    // Substitui o texto do botão 
+                    let jogador = $(this).text(jogada)
+                    if(jogador.text() == 'X') {
+                        $(this).addClass('activedX').removeClass('activedO')
+                    } else {
+                        $(this).addClass('activedO').removeClass('activedX')
+                    }
+                    
+                    // Desabilitar o botão clicado
+                    $(this).attr('disabled', true)
+
+                    // Verifica o vencedor
+                    verificarVencedor()
+                })
+
+                $('button.resetar').on('click', function(){
+                    location.reload()
+                })
+            })
+        </script>
+        <link rel="stylesheet" href="css/estilo.css" />
+    </head>
+    <body>
+        <div class="game">
+            <button class="btn click" id="11" data-value="1">V</button>
+            <button class="btn click" id="12" data-value="2">V</button>
+            <button class="btn click" id="13" data-value="3">V</button>
+            
+            <button class="btn click" id="21" data-value="4">V</button>
+            <button class="btn click" id="22" data-value="5">V</button>
+            <button class="btn click" id="23" data-value="6">V</button>
+            
+            <button class="btn click" id="31" data-value="7">V</button>
+            <button class="btn click" id="32" data-value="8">V</button>
+            <button class="btn click" id="33" data-value="9">V</button>      
+            
+            <br /><br />
+            
+            <label id="resultado"></label>
+            <label id="jogador" hidden>X</label>
+        </div>
+
+        <button class="resetar">REINICIAR O JOGO</button>
+    </body>
+
+</html>
