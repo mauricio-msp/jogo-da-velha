@@ -16,43 +16,39 @@ let verificarVencedor = () => {
 
 // Horizontais
 let vencedorHorizontal = () => {
-    let combinacao = ''
-    
     for(let i = 1; i <= 3; i++) {
+        let combinacao = ''
+    
         for(let j = 1; j <= 3; j++) {
             combinacao += $(`#${i}${j}`).text()
-            
-            if(combinacao == 'undefinedX') {
-                combinacao = 'X'
-            } else if(combinacao == 'XXX') {
-                $('#resultado').text('O Jogador X Ganhou!!!')
-            } else if(combinacao == 'OOO') {
-                $('#resultado').text('O Jogador O Ganhou!!!')
-            }  
         }
 
-        combinacao = ''
+        if(combinacao == 'XXX') {
+            pararJogo()
+            $('#resultado').text('O Jogador X Ganhou!!!')
+        } else if(combinacao == 'OOO') {
+            pararJogo()
+            $('#resultado').text('O Jogador O Ganhou!!!')
+        }  
     }
 }
 
 // Verticais
 let vencedorVertical = () => {
-    let combinacao = ''
-
     for(let i = 1; i <= 3; i++) {
+        let combinacao = ''
+        
         for(let j = 1; j <= 3; j++) {
-            combinacao += $(`#${j}${i}`).text()
-            
-            if(combinacao == 'undefinedX') {
-                combinacao = 'X'
-            } else if(combinacao == 'XXX') {
-                $('#resultado').text('O Jogador X Ganhou!!!')
-            } else if(combinacao == 'OOO') {
-                $('#resultado').text('O Jogador O Ganhou!!!')
-            }         
+            combinacao += $(`#${j}${i}`).text()         
         }
-
-        combinacao = ''
+        
+        if(combinacao == 'XXX') {
+            pararJogo()            
+            $('#resultado').text('O Jogador X Ganhou!!!')
+        } else if(combinacao == 'OOO') {
+            pararJogo()
+            $('#resultado').text('O Jogador O Ganhou!!!')
+        }
     }
 }
 
@@ -64,8 +60,10 @@ let vencedorDiagonal = () => {
     combinacao = $('#11').text() + $('#22').text() + $('#33').text() 
     
     if(combinacao == 'XXX') {
+        pararJogo()
         $('#resultado').text('O Jogador X Ganhou!!!')
     } else if(combinacao == 'OOO') {
+        pararJogo()
         $('#resultado').text('O Jogador O Ganhou!!!')
     } 
 
@@ -73,8 +71,19 @@ let vencedorDiagonal = () => {
     combinacao = $('#13').text() + $('#22').text() + $('#31').text() 
     
     if(combinacao == 'XXX') {
+        pararJogo()
         $('#resultado').text('O Jogador X Ganhou!!!')
     } else if(combinacao == 'OOO') {
+        pararJogo()
         $('#resultado').text('O Jogador O Ganhou!!!')
     } 
+}
+
+// Parar jogo após alguém vencer
+let pararJogo = () => {
+    for(let i = 1; i <= 3; i++) {
+        for(let j = 1; j <= 3; j++) {
+            $(`#${i}${j}`).attr('disabled', true)
+        }
+    }     
 }

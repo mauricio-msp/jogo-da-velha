@@ -10,7 +10,7 @@
         <script src="js/funcoes.js"></script>
         <script>
             $(function(){
-                $('button.click').on('click', function() {  
+                $(document).on('click', 'button.btn', function() {  
                     // Retorna o valor da jogada
                     let jogada = $('#jogador').text()                  
                     
@@ -27,12 +27,12 @@
                     
                     // Desabilitar o botão clicado
                     $(this).attr('disabled', true)
-
+                    
                     // Verifica o vencedor
                     verificarVencedor()
                 })
-
-                $('button.resetar').on('click', function(){
+                
+                $(document).on('click', 'button.resetar', function(){
                     window.location.reload()
                     history.go(0)
                 })
@@ -42,17 +42,17 @@
     </head>
     <body>
         <div class="game">
-            <button class="btn click" id="11" data-value="1">V</button>
-            <button class="btn click" id="12" data-value="2">V</button>
-            <button class="btn click" id="13" data-value="3">V</button>
+            <button class="btn" id="11" data-value="1">V</button>
+            <button class="btn" id="12" data-value="2">V</button>
+            <button class="btn" id="13" data-value="3">V</button>
             
-            <button class="btn click" id="21" data-value="4">V</button>
-            <button class="btn click" id="22" data-value="5">V</button>
-            <button class="btn click" id="23" data-value="6">V</button>
+            <button class="btn" id="21" data-value="4">V</button>
+            <button class="btn" id="22" data-value="5">V</button>
+            <button class="btn" id="23" data-value="6">V</button>
             
-            <button class="btn click" id="31" data-value="7">V</button>
-            <button class="btn click" id="32" data-value="8">V</button>
-            <button class="btn click" id="33" data-value="9">V</button>      
+            <button class="btn" id="31" data-value="7">V</button>
+            <button class="btn" id="32" data-value="8">V</button>
+            <button class="btn" id="33" data-value="9">V</button>      
             
             <br /><br />
             
