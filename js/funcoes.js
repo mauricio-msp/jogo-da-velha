@@ -28,7 +28,7 @@ let vencedorHorizontal = () => {
                 $('#resultado').text('O Jogador X Ganhou!!!')
             } else if(combinacao == 'OOO') {
                 $('#resultado').text('O Jogador O Ganhou!!!')
-            }    
+            }  
         }
 
         combinacao = ''
@@ -47,11 +47,9 @@ let vencedorVertical = () => {
                 combinacao = 'X'
             } else if(combinacao == 'XXX') {
                 $('#resultado').text('O Jogador X Ganhou!!!')
-                $(`#${j}${i}`).attr('disabled', true)
             } else if(combinacao == 'OOO') {
                 $('#resultado').text('O Jogador O Ganhou!!!')
-                $(`#${j}${i}`).attr('disabled', true)
-            } 
+            }         
         }
 
         combinacao = ''
@@ -72,12 +70,11 @@ let vencedorDiagonal = () => {
     } 
 
     // Diagonal Secundária
-
     combinacao = $('#13').text() + $('#22').text() + $('#31').text() 
     
     if(combinacao == 'XXX') {
         $('#resultado').text('O Jogador X Ganhou!!!')
     } else if(combinacao == 'OOO') {
         $('#resultado').text('O Jogador O Ganhou!!!')
-    }
+    } 
 }
