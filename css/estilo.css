@@ -24,6 +24,7 @@ body {
     color: transparent;
     margin-right: -4px;
     background: none;
+    cursor: pointer;
 }
 
 .activedX {
