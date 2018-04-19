@@ -1,12 +1,14 @@
- let trocarJogada = (jogada) => {
+// Trocar o símbolo
+let trocarJogada = (jogada) => {
     if(jogada == 'X') {
         $('#jogador').text('O')
     } else {
         $('#jogador').text('X')
     }
- }
- 
- let verificarVencedor = () => {
+}
+
+// Verificar o Vencedor
+let verificarVencedor = () => {
     vencedorHorizontal()
     vencedorVertical()
     vencedorDiagonal()
